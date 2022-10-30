@@ -32,21 +32,15 @@ var slotMachine = {
         reel.spin();
     })},
     display: function() {
-        
-        console.log('start:' + this.reels[0].position);
-        this.reels[0].position = (this.reels[0].position + 1) % this.reels[0].symbols.length;
-        console.log('end:' + this.reels[0].position);
-        
-        /*this.reels.forEach((reel) => {
-        reel.position = (reel.position === 0 ? reel.symbols.length +1: reel.position--);
-        var prev = reel.display() + ' | ';
-        reel.position = reel.position + 1;
-        var current = reel.display() + ' | ';
-        reel.position = reel.position +1;
-        var next = reel.display();
+        this.reels.forEach((reel) => {
+            var current = reel.symbols[reel.position];
+            var next =  reel.symbols[(reel.position + 1) % reel.symbols.length];
+            var prev =  reel.symbols[(reel.position - 1) % reel.symbols.length];
 
-        console.log(prev + current + next);
-    })*/}
+        console.log(prev + ' | ' + current + ' | ' + next);
+
+        });
+    }
 };
 
 slotMachine.spin();
