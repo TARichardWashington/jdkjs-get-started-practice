@@ -1,4 +1,9 @@
 function scheduleMeeting(startTime, duration) {
+  var startTime = [...startTime];
+
+  var startHours = Number(startTime[0]) + startTime[1];
+  var startMinutes = Number(startTime[3]) + startTime[4];
+
   return true;
 }
 
