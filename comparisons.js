@@ -44,6 +44,8 @@ function scheduleMeeting(startTime, duration) {
   var dayEndHours = Number(dayEndArray[0] + dayEndArray[1]);
   var dayEndMinutes = Number(dayEndArray[3] + dayEndArray[4]);
 
+  // Check and return
+
   var afterStartTime = startHours > dayStartHours ? true : (startHours === dayStartHours && startMinutes >= dayStartMinutes ? true : false);
   var beforeEndTime = endHours < dayEndHours ? true : (endHours === dayEndHours && endMinutes <= dayEndMinutes ? true : false);
 
