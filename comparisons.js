@@ -1,0 +1,3 @@
+function scheduleMeeting(startTime, duration) {
+    
+}
