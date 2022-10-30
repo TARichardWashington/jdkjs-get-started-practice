@@ -1,7 +1,14 @@
+
+
 "use strict";
 
+const dayStart = "07:30";
+const dayEnd = "17:45";
+
 function scheduleMeeting(startTime, duration) {
-  if(startTime.length === 4) {
+  // Our start time and duration
+  
+    if(startTime.length === 4) {
     startTime = '0' + startTime;
   };
 
@@ -26,8 +33,19 @@ function scheduleMeeting(startTime, duration) {
     endMinutes = startMinutes + duration;
   }
 
-  var afterStartTime = startHours > 7 ? true : (startHours === 7 && startMinutes >= 30 ? true : false);
-  var beforeEndTime = endHours < 17 ? true : (endHours === 17 && endMinutes <= 45 ? true : false);
+  // Day start and end times
+
+  var dayStartArray = [...dayStart];
+  var dayEndArray = [...dayEnd];
+
+  var dayStartHours = Number(dayStartArray[0] + dayStartArray[1]);
+  var dayStartMinutes = Number(dayStartArray[3] + dayStartArray[4]);
+
+  var dayEndHours = Number(dayEndArray[0] + dayEndArray[1]);
+  var dayEndMinutes = Number(dayEndArray[3] + dayEndArray[4]);
+
+  var afterStartTime = startHours > dayStartHours ? true : (startHours === dayStartHours && startMinutes >= dayStartMinutes ? true : false);
+  var beforeEndTime = endHours < dayEndHours ? true : (endHours === dayEndHours && endMinutes <= dayEndMinutes ? true : false);
 
   return afterStartTime && beforeEndTime;
 
